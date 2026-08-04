@@ -1,6 +1,4 @@
 https://roadmap.sh/projects/basic-dns
-# Basic-DNS-Setup
-
 # Basic DNS Setup Project
 
 This project demonstrates the setup and configuration of custom domain DNS records, routing traffic to multiple hosting providers (**GitHub Pages** and a cloud server like **DigitalOcean / AWS EC2**).
