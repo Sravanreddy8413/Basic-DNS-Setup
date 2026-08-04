@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sravankumar | Senior DevOps Engineer</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header Navigation & Utility Tabs -->
+    <header>
+        <div class="logo">
+            <i class="fa-solid fa-terminal"></i> Sravankumar
+        </div>
+        
+        <!-- Search Bar Component -->
+        <div class="search-container">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <input type="text" id="toolSearch" placeholder="Search tools or skills...">
+        </div>
+
+        <!-- Navigation Links & Auth Tabs -->
+        <nav>
+            <a href="#about">About</a>
+            <a href="#tools">Tools & Tech</a>
+            <a href="#contact">Contact</a>
+            
+            <!-- Account & Password Management Dropdown / Tabs -->
+            <div class="auth-buttons">
+                <button class="btn-login" onclick="openModal('loginModal')">
+                    <i class="fa-solid fa-right-to-bracket"></i> Login
+                </button>
+                <button class="btn-key" onclick="openModal('passwordModal')" title="Manage Password">
+                    <i class="fa-solid fa-key"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="about">
+        <h1>Sravankumar</h1>
+        <h2>DevOps & Cloud Engineer <span class="exp-badge">(5 Years Experience)</span></h2>
+        <p>Specializing in CI/CD automation, cloud infrastructure orchestration, containerization, and enterprise infrastructure monitoring.</p>
+        
+        <div class="contact-info">
+            <p><i class="fa-solid fa-phone"></i> <strong>Mobile:</strong> <a href="tel:8886464553">8886464553</a></p>
+            <p><i class="fa-solid fa-globe"></i> <strong>Domain:</strong> sravanreddy25.in</p>
+        </div>
+    </section>
+
+    <!-- Core DevOps Tools & Tech Stack -->
+    <section class="tools-section" id="tools">
+        <h2><i class="fa-solid fa-toolbox"></i> Tools & Expertise</h2>
+        <div class="tools-grid">
+
+            <!-- Tool 1 -->
+            <div class="tool-card">
+                <i class="fa-brands fa-aws tool-icon"></i>
+                <h3>AWS (Amazon Web Services)</h3>
+                <p>Designed and deployed scalable cloud infrastructure using EC2, S3, VPC, IAM, RDS, and Elastic Load Balancers with focus on high availability and security.</p>
+            </div>
+
+            <!-- Tool 2 -->
+            <div class="tool-card">
+                <i class="fa-brands fa-docker tool-icon"></i>
+                <h3>Docker & Containerization</h3>
+                <p>Containerized multi-tier microservices applications, optimizing Dockerfiles for minimal image sizes and secure runtime environments.</p>
+            </div>
+
+            <!-- Tool 3 -->
+            <div class="tool-card">
+                <i class="fa-solid fa-dharmachakra tool-icon"></i>
+                <h3>Kubernetes (EKS/K8s)</h3>
+                <p>Managed container orchestration, pod autoscaling (HPA), ingress controllers, and ConfigMaps for fault-tolerant microservice deployment.</p>
+            </div>
+
+            <!-- Tool 4 -->
+            <div class="tool-card">
+                <i class="fa-brands fa-jenkins tool-icon"></i>
+                <h3>Jenkins & GitHub Actions</h3>
+                <p>Built end-to-end automated CI/CD pipelines for continuous integration, code quality analysis, unit testing, and automated deployments.</p>
+            </div>
+
+            <!-- Tool 5 -->
+            <div class="tool-card">
+                <i class="fa-solid fa-cubes tool-icon"></i>
+                <h3>Terraform (IaC)</h3>
+                <p>Provisioned reproducible, version-controlled cloud resources across environments using declarative Infrastructure-as-Code modules.</p>
+            </div>
+
+            <!-- Tool 6 -->
+            <div class="tool-card">
+                <i class="fa-solid fa-server tool-icon"></i>
+                <h3>Ansible</h3>
+                <p>Automated configuration management, server provisioning, patch deployments, and task orchestration across multi-node linux clusters.</p>
+            </div>
+
+            <!-- Tool 7 -->
+            <div class="tool-card">
+                <i class="fa-solid fa-network-wired tool-icon"></i>
+                <h3>Nginx & Web Servers</h3>
+                <p>Configured reverse proxies, load balancing, virtual hosting, TLS/SSL certificates via Certbot, and zero-downtime routing.</p>
+            </div>
+
+            <!-- Tool 8 -->
+            <div class="tool-card">
+                <i class="fa-solid fa-chart-line tool-icon"></i>
+                <h3>Prometheus & Grafana</h3>
+                <p>Configured metric collection, alerting mechanisms, and dynamic dashboards for real-time monitoring of infrastructure and application health.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Modals for Login and Password Management -->
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('loginModal')">&times;</span>
+            <h3><i class="fa-solid fa-user-lock"></i> Engineer Portal Login</h3>
+            <form>
+                <label for="username">Username / Email</label>
+                <input type="text" id="username" placeholder="Enter username">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter password">
+                <button type="submit" class="submit-btn">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Password Tab/Modal -->
+    <div id="passwordModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('passwordModal')">&times;</span>
+            <h3><i class="fa-solid fa-key"></i> Password Management</h3>
+            <form>
+                <label for="curr-pass">Current Password</label>
+                <input type="password" id="curr-pass" placeholder="Current password">
+                <label for="new-pass">New Password</label>
+                <input type="password" id="new-pass" placeholder="New password">
+                <button type="submit" class="submit-btn">Update Password</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
