@@ -3,126 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sravankumar | Senior DevOps Engineer</title>
+    <title>SravanAI Assistant | DevOps Workspace</title>
     <link rel="stylesheet" href="style.css">
-    <!-- FontAwesome Icons -->
+    <!-- FontAwesome & Google Material Symbols -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
-<body>
+<body class="theme-dark">
 
-    <!-- Header Navigation & Utility Tabs -->
-    <header>
-        <div class="logo">
-            <i class="fa-solid fa-terminal"></i> Sravankumar
-        </div>
-        
-        <!-- Search Bar Component -->
-        <div class="search-container">
-            <i class="fa-solid fa-magnifying-glass search-icon"></i>
-            <input type="text" id="toolSearch" placeholder="Search tools or skills...">
-        </div>
+    <!-- App Shell Container -->
+    <div class="app-container">
 
-        <!-- Navigation Links & Auth Tabs -->
-        <nav>
-            <a href="#about">About</a>
-            <a href="#tools">Tools & Tech</a>
-            <a href="#contact">Contact</a>
-            
-            <!-- Account & Password Management Dropdown / Tabs -->
-            <div class="auth-buttons">
-                <button class="btn-login" onclick="openModal('loginModal')">
-                    <i class="fa-solid fa-right-to-bracket"></i> Login
-                </button>
-                <button class="btn-key" onclick="openModal('passwordModal')" title="Manage Password">
-                    <i class="fa-solid fa-key"></i>
+        <!-- Left Sidebar Navigation -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fa-solid fa-robot"></i>
+                    <span>SravanAI Dev</span>
+                </div>
+                <button class="btn-icon" id="toggleSidebar" title="Toggle Sidebar">
+                    <i class="fa-solid fa-bars"></i>
                 </button>
             </div>
-        </nav>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="about">
-        <h1>Sravankumar</h1>
-        <h2>DevOps & Cloud Engineer <span class="exp-badge">(5 Years Experience)</span></h2>
-        <p>Specializing in CI/CD automation, cloud infrastructure orchestration, containerization, and enterprise infrastructure monitoring.</p>
-        
-        <div class="contact-info">
-            <p><i class="fa-solid fa-phone"></i> <strong>Mobile:</strong> <a href="tel:8886464553">8886464553</a></p>
-            <p><i class="fa-solid fa-globe"></i> <strong>Domain:</strong> sravanreddy25.in</p>
-        </div>
-    </section>
+            <!-- Primary Action: New Chat -->
+            <button class="btn-new-chat" id="newChatBtn">
+                <i class="fa-solid fa-plus"></i> New Chat
+            </button>
 
-    <!-- Core DevOps Tools & Tech Stack -->
-    <section class="tools-section" id="tools">
-        <h2><i class="fa-solid fa-toolbox"></i> Tools & Expertise</h2>
-        <div class="tools-grid">
-
-            <!-- Tool 1 -->
-            <div class="tool-card">
-                <i class="fa-brands fa-aws tool-icon"></i>
-                <h3>AWS (Amazon Web Services)</h3>
-                <p>Designed and deployed scalable cloud infrastructure using EC2, S3, VPC, IAM, RDS, and Elastic Load Balancers with focus on high availability and security.</p>
+            <!-- Chat Actions Toolbar -->
+            <div class="sidebar-actions">
+                <button class="action-item" id="editChatBtn" title="Edit Active Chat Title">
+                    <i class="fa-solid fa-pen-to-square"></i> Edit Title
+                </button>
+                <button class="action-item" id="mergeChatBtn" title="Merge Selected Chats">
+                    <i class="fa-solid fa-code-merge"></i> Merge Chats
+                </button>
             </div>
 
-            <!-- Tool 2 -->
-            <div class="tool-card">
-                <i class="fa-brands fa-docker tool-icon"></i>
-                <h3>Docker & Containerization</h3>
-                <p>Containerized multi-tier microservices applications, optimizing Dockerfiles for minimal image sizes and secure runtime environments.</p>
+            <!-- Recent Chat History List -->
+            <div class="chat-history">
+                <span class="section-title">Recent Conversations</span>
+                <ul id="chatList">
+                    <li class="chat-item active">
+                        <i class="fa-regular fa-message"></i>
+                        <span class="chat-title">DNS Setup & EC2 Config</span>
+                    </li>
+                    <li class="chat-item">
+                        <i class="fa-regular fa-message"></i>
+                        <span class="chat-title">Docker & Kubernetes Specs</span>
+                    </li>
+                    <li class="chat-item">
+                        <i class="fa-regular fa-message"></i>
+                        <span class="chat-title">Jenkins CI/CD Pipeline</span>
+                    </li>
+                </ul>
             </div>
 
-            <!-- Tool 3 -->
-            <div class="tool-card">
-                <i class="fa-solid fa-dharmachakra tool-icon"></i>
-                <h3>Kubernetes (EKS/K8s)</h3>
-                <p>Managed container orchestration, pod autoscaling (HPA), ingress controllers, and ConfigMaps for fault-tolerant microservice deployment.</p>
+            <!-- Sidebar Footer & Controls -->
+            <div class="sidebar-footer">
+                <!-- Theme Selector -->
+                <div class="theme-selector">
+                    <i class="fa-solid fa-palette"></i>
+                    <select id="themeDropdown">
+                        <option value="theme-dark">Dark Mode</option>
+                        <option value="theme-rainbow">Windows Rainbow</option>
+                        <option value="theme-cyberpunk">Cyberpunk Neon</option>
+                        <option value="theme-emerald">Emerald Cloud</option>
+                    </select>
+                </div>
+
+                <!-- Auth / User Info -->
+                <div class="user-profile">
+                    <button class="btn-user-action" onclick="openModal('loginModal')">
+                        <i class="fa-solid fa-right-to-bracket"></i> Login
+                    </button>
+                    <button class="btn-user-action" onclick="openModal('passwordModal')" title="Password Management">
+                        <i class="fa-solid fa-key"></i>
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Chat Workspace -->
+        <main class="chat-workspace">
+
+            <!-- Top Header Navbar -->
+            <header class="chat-header">
+                <div class="active-chat-info">
+                    <h2 id="activeChatTitle">DNS Setup & EC2 Integration</h2>
+                    <span class="status-indicator online">● Online</span>
+                </div>
+
+                <div class="header-utilities">
+                    <!-- Search Bar -->
+                    <div class="search-container">
+                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                        <input type="text" id="toolSearch" placeholder="Search prompts or logs...">
+                    </div>
+                    <!-- Contact Badge -->
+                    <div class="contact-badge" title="Developer Contact">
+                        <i class="fa-solid fa-phone"></i> <span>8886464553</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Chat Message Feed -->
+            <div class="chat-messages" id="chatMessages">
+                <!-- AI Welcome Message -->
+                <div class="message ai-message">
+                    <div class="avatar"><i class="fa-solid fa-microchip"></i></div>
+                    <div class="message-content">
+                        <h3>Welcome to Sravankumar's DevOps AI Assistant!</h3>
+                        <p>I can help you build CI/CD pipelines, troubleshoot AWS infrastructure, manage Kubernetes pods, or review code scripts. How can I assist you today?</p>
+                    </div>
+                </div>
             </div>
 
-            <!-- Tool 4 -->
-            <div class="tool-card">
-                <i class="fa-brands fa-jenkins tool-icon"></i>
-                <h3>Jenkins & GitHub Actions</h3>
-                <p>Built end-to-end automated CI/CD pipelines for continuous integration, code quality analysis, unit testing, and automated deployments.</p>
+            <!-- Multi-Media Prompt Input Bar -->
+            <div class="chat-input-wrapper">
+                <div class="input-actions-bar">
+                    
+                    <!-- File Upload Options -->
+                    <label class="attachment-btn" title="Add Images">
+                        <i class="fa-solid fa-image"></i>
+                        <input type="file" id="imageInput" accept="image/*" hidden>
+                    </label>
+
+                    <label class="attachment-btn" title="Add Files/Documents">
+                        <i class="fa-solid fa-paperclip"></i>
+                        <input type="file" id="fileInput" accept=".pdf,.doc,.txt,.json,.yaml" hidden>
+                    </label>
+
+                    <button class="attachment-btn" id="addTextBtn" title="Add Code/Text Snippet">
+                        <i class="fa-solid fa-code"></i>
+                    </button>
+
+                    <button class="attachment-btn" id="addDateBtn" title="Insert Timestamp / Logs">
+                        <i class="fa-solid fa-calendar-plus"></i>
+                    </button>
+                </div>
+
+                <!-- Input Textarea & Send Button -->
+                <div class="input-field-container">
+                    <textarea id="userInput" placeholder="Ask SravanAI or upload files..." rows="1"></textarea>
+                    <button class="btn-send" id="sendBtn">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </div>
             </div>
 
-            <!-- Tool 5 -->
-            <div class="tool-card">
-                <i class="fa-solid fa-cubes tool-icon"></i>
-                <h3>Terraform (IaC)</h3>
-                <p>Provisioned reproducible, version-controlled cloud resources across environments using declarative Infrastructure-as-Code modules.</p>
-            </div>
+        </main>
+    </div>
 
-            <!-- Tool 6 -->
-            <div class="tool-card">
-                <i class="fa-solid fa-server tool-icon"></i>
-                <h3>Ansible</h3>
-                <p>Automated configuration management, server provisioning, patch deployments, and task orchestration across multi-node linux clusters.</p>
-            </div>
-
-            <!-- Tool 7 -->
-            <div class="tool-card">
-                <i class="fa-solid fa-network-wired tool-icon"></i>
-                <h3>Nginx & Web Servers</h3>
-                <p>Configured reverse proxies, load balancing, virtual hosting, TLS/SSL certificates via Certbot, and zero-downtime routing.</p>
-            </div>
-
-            <!-- Tool 8 -->
-            <div class="tool-card">
-                <i class="fa-solid fa-chart-line tool-icon"></i>
-                <h3>Prometheus & Grafana</h3>
-                <p>Configured metric collection, alerting mechanisms, and dynamic dashboards for real-time monitoring of infrastructure and application health.</p>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Modals for Login and Password Management -->
-
-    <!-- Login Modal -->
+    <!-- Modals (Login & Password Tabs) -->
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('loginModal')">&times;</span>
-            <h3><i class="fa-solid fa-user-lock"></i> Engineer Portal Login</h3>
+            <h3><i class="fa-solid fa-user-lock"></i> Developer Login</h3>
             <form>
                 <label for="username">Username / Email</label>
                 <input type="text" id="username" placeholder="Enter username">
@@ -133,11 +171,10 @@
         </div>
     </div>
 
-    <!-- Password Tab/Modal -->
     <div id="passwordModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('passwordModal')">&times;</span>
-            <h3><i class="fa-solid fa-key"></i> Password Management</h3>
+            <h3><i class="fa-solid fa-key"></i> Security Settings</h3>
             <form>
                 <label for="curr-pass">Current Password</label>
                 <input type="password" id="curr-pass" placeholder="Current password">
